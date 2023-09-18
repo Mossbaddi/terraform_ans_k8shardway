@@ -58,3 +58,7 @@ Temporary Items
 ### Ansible ###
 *.retry
 
+
+### README ###
+README.md
+LICENSE.md

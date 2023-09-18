@@ -7,13 +7,22 @@
   gather_facts: false # As Python is not yet installed, we cannot gather host facts
 
   tasks:
-    - name: Install Python
-      raw: "apt-get -y -q install python"
+    - name: Update apt cache
+      raw: "apt-get update"
+      become: true
+      changed_when: false
+
+    - name: Install Python3
+      raw: "apt-get -y -q install python3"
       become: true
       retries: 10
       delay: 20
-      # If you run this playbook immediately after Terraform, ssh may not be ready to respond yet
 
+    - name: Ensure 'python' command points to Python3
+      raw: "apt-get -y -q install python-is-python3"
+      become: true
+      retries: 10
+      delay: 20
 #######################
 # Setup K8s components
 #######################

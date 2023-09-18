@@ -54,13 +54,13 @@ variable kubernetes_pod_cidr {
 # Instances Setup
 variable amis {
   description = "Default AMIs to use for nodes depending on the region"
-  type = "map"
+  type = map(string)
   default = {
     ap-northeast-1 = "ami-0567c164"
     ap-southeast-1 = "ami-a1288ec2"
     cn-north-1 = "ami-d9f226b4"
     eu-central-1 = "ami-8504fdea"
-    eu-west-1 = "ami-0d77397e"
+    eu-west-1 = "ami-01dd271720c1ba44f"
     sa-east-1 = "ami-e93da085"
     us-east-1 = "ami-40d28157"
     us-west-1 = "ami-6e165d0e"
